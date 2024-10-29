@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: asuswrt-CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  repository_dispatch:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    name: Build asuswrt firmware for Tenda AC9 Router
+
+    runs-on: ubuntu-latest
+
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Prepare artifact
+        run:
+          mkdir -p $GITHUB_WORKSPACE/artifact/firmware
+          mkdir -p $GITHUB_WORKSPACE/release/src-rt-9.x/src/image
+          touch $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/test.txt
+          cp -rf $(find $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/ -type f) $GITHUB_WORKSPACE/artifact/firmware/
+          ls -l $GITHUB_WORKSPACE/artifact/firmware/
