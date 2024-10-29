@@ -68,15 +68,8 @@ jobs:
       - name: Prepare artifact   
         run: |
           mkdir -p $GITHUB_WORKSPACE/artifact/firmware
-          mkdir -p $GITHUB_WORKSPACE/artifact/buildinfo
           cp -rf $(find $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/ -type f) $GITHUB_WORKSPACE/artifact/firmware/
-          cp -rf $(find $GITHUB_WORKSPACE/ -type f -name "*.log") $GITHUB_WORKSPACE/artifact/buildinfo/
-      - name: Deliver buildinfo
-        uses: actions/upload-artifact@v4
-        with:
-          name: asuswrt_buildinfo
-          path: $GITHUB_WORKSPACE/artifact/buildinfo/
-
+          
       - name: Deliver firmware
         uses: actions/upload-artifact@v4
         with:
