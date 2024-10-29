@@ -17,7 +17,7 @@ jobs:
     # The type of runner that the job will run on
     name: Build asuswrt firmware for Tenda AC9 Router
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     if: github.event.repository.owner.id == github.event.sender.id
 
