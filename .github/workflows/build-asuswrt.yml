@@ -36,6 +36,7 @@ jobs:
           sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
           sudo -E apt-get -qq update
           sudo -E apt-get -qq install --no-install-recommends autoconf automake bash bison bzip2 diffutils file flex g++ gawk gcc-multilib gettext gperf groff-base libncurses-dev libexpat1-dev libslang2 libssl-dev libtool libxml-parser-perl make patch perl pkg-config sed shtool tar texinfo unzip zlib1g zlib1g-dev
+          sudo -E apt install gtk-doc-tools
           sudo -E dpkg --add-architecture i386
           sudo -E apt-get -qq update
           sudo -E apt-get -qq install lib32stdc++6 lib32z1-dev
