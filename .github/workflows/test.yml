@@ -28,5 +28,5 @@ jobs:
           mkdir -p $GITHUB_WORKSPACE/artifact/firmware
           mkdir -p $GITHUB_WORKSPACE/release/src-rt-9.x/src/image
           touch $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/test.txt
-          cp -rf $(find $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/ -type f) $GITHUB_WORKSPACE/artifact/firmware/
+          cp -f $(find $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/ -type f) $GITHUB_WORKSPACE/artifact/firmware/
           ls -l $GITHUB_WORKSPACE/artifact/firmware/
