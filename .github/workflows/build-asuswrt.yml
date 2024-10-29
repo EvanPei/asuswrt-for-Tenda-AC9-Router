@@ -25,7 +25,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: master
 
@@ -68,20 +68,20 @@ jobs:
           cp -rf $(find $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/ -type f) $GITHUB_WORKSPACE/artifact/firmware/
           cp -rf $(find $GITHUB_WORKSPACE/ -type f -name "*.log") $GITHUB_WORKSPACE/artifact/buildinfo/
       - name: Deliver buildinfo
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: asuswrt_buildinfo
           path: $GITHUB_WORKSPACE/artifact/buildinfo/
 
       - name: Deliver firmware
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: asuswrt_firmware
           path: $GITHUB_WORKSPACE/artifact/firmware/  
 
       - name: Upload release asset
         if: github.event == 'release'
-        uses: svenstaro/upload-release-action@v2
+        uses: svenstaro/upload-release-action@v4
         with:
           repo_token: ${{ secrets.YOURTOKEN }}
           file: $GITHUB_WORKSPACE/artifact/firmware/*
