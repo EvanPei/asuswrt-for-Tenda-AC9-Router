@@ -24,7 +24,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Prepare artifact
-        run:
+        run: |
           mkdir -p $GITHUB_WORKSPACE/artifact/firmware
           mkdir -p $GITHUB_WORKSPACE/release/src-rt-9.x/src/image
           touch $GITHUB_WORKSPACE/release/src-rt-9.x/src/image/test.txt
