@@ -1,8 +1,9 @@
 name: test-CI
 
 on:
-  repository_dispatch:
-  workflow_dispatch:
+  release:
+    types: [created]  # 当新建 Release 时触发
+  workflow_dispatch:  # 手动触发（可选）
   
 jobs:
   build:
